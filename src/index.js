@@ -1,9 +1,12 @@
 const express = require("express");
-const dbConfig = require("./config/dbConfig");
 
-const PORT = dbConfig.PORT; // SRP -> Single Responsibility Principle
+const serverConfig = require("./config/serverConfig.js");
+const connectDB = require("./config/dbConfig.js");
+
+const PORT = serverConfig.PORT; // SRP -> Single Responsibility Principle
 const app = express();
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await connectDB();
   console.log(`Server is running on port ${PORT}`);
 });
