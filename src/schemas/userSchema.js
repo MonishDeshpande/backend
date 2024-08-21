@@ -22,7 +22,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Mobile number is required"],
       unique: true,
-      match: [/^(\+\d{1,3}[- ]?)?\d{10}$/, "Invalid mobile number"],
       trim: true,
       maxlength: [10, "Mobile number must be 10 digits long"],
       minlength: [10, "Mobile number must be 10 digits long"],
